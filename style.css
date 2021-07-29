@@ -177,3 +177,12 @@
         transform: translateY(600px) rotateZ(90deg);
     }
 }
+
+@media (max-width: 500px) {
+    .todo-list__add-todo {
+        width: 300px;
+    }
+    .todo-list__list-container {
+        width: 300px;
+    }
+} 
