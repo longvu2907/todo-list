@@ -1,4 +1,4 @@
-const todoListApi = "https://raw.githubusercontent.com/longvu2907/todo-list/main/db.json";
+const todoListApi = "https://longvu2907.gq/db.json";
 const todoListBlock = document.querySelector('.todo-list__list');
 const addButton = document.querySelector('.add-todo__button');
 var addButtonActive = document.querySelector('.add-todo__button.active');
