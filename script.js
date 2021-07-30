@@ -8,7 +8,7 @@ function getTodoList(callback) {
     fetch(todoListApi)
         .then(response => response.json())
         .then(callback)
-        .catch((err) => alert(err));
+        //.catch((err) => alert(err));
 }
 
 function renderTodoList(data) {
@@ -79,7 +79,7 @@ function addTodo(data) {
         var item = items[items.length - 1]; 
         setTimeout(() => item.classList.remove('item--new'), 500);
     })
-    .catch((err) => alert(err));
+    //.catch((err) => alert(err));
 }
 
 function handleDeleteTodo(id) {
@@ -94,7 +94,7 @@ function handleDeleteTodo(id) {
         item.classList.add('item--removed');
         setTimeout(() => item.remove(), 1000);
     })
-    .catch((err) => alert(err));
+    //.catch((err) => alert(err));
 }
 
 function updateTodo(data, id) {
