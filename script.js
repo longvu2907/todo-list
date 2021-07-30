@@ -12,10 +12,6 @@ function getTodoList(callback) {
 }
 
 function renderTodoList(data) {
-<<<<<<< HEAD
-    console.log(data);
-=======
->>>>>>> 7ab76412cf5ccfa9db83d961ceba4c94e39a33cd
     var htmls = data.todoList.map((item) => {
         return `
             <div class="todo-list__item item-${item.id}">
