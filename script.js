@@ -90,10 +90,10 @@ function handleDeleteTodo(id) {
         'Content-Type': 'application/json'
         },
     })
-    .then(() => { 
-        item.classList.add('item--removed');
-        setTimeout(() => item.remove(), 1000);
-    })
+    // .then(() => { 
+    // })
+    item.classList.add('item--removed');
+    setTimeout(() => item.remove(), 1000);
     //.catch((err) => alert(err));
 }
 
