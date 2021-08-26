@@ -5,13 +5,17 @@
     font-family: monospace;
 }
 
+i {
+    color: transparent;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
 
 .todo-list {
     height: 100vh;
-    display:  flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -36,11 +40,11 @@
     border-radius: 100%;
     color: #1effea;
     box-shadow: rgb(109 255 241 / 58%) 0px 1px 10px;
-    transition: all .5s;
+    transition: all 0.3s;
 }
 
 .add-todo__button:hover {
-    transform: scaleY(-1);
+    transform: scale(1.2);
 }
 
 .add-todo__input {
@@ -53,7 +57,7 @@
     box-shadow: rgb(109 255 241 / 58%) 0px 1px 10px;
     border-radius: 10px;
     margin-right: 10px;
-    transition: all .5s;
+    transition: all 0.5s;
     z-index: -1;
 }
 
@@ -123,19 +127,19 @@
     font-size: 2rem;
     color: red;
     opacity: 0.5;
-    transition: all .3s;
+    transition: all 0.3s;
 }
 
 .item__edit-button {
     font-size: 1.5rem;
     color: green;
     opacity: 0.5;
-    transition: all .3s;
+    transition: all 0.3s;
     margin-right: 10px;
 }
 
 .item__delete-button:hover {
-    transform: rotate(180deg) scale(1.5);
+    transform: scale(1.5);
     opacity: 1;
 }
 
@@ -146,23 +150,24 @@
 
 .item--new {
     opacity: 0;
-    animation: new-item-animation .3s linear forwards;
+    animation: new-item-animation 0.3s linear forwards;
 }
 
 .item--removed {
-    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94)
+        forwards;
     transform-origin: 0% 100%;
 }
 
 @keyframes new-item-animation {
-    from {
+    0% {
         opacity: 0;
         transform: translateY(-400px);
-}
+    }
 
-    to {
+    100% {
         opacity: 1;
-        transform : translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -170,7 +175,7 @@
     0% {
         opacity: 1;
         transform: rotateZ(0);
-}
+    }
 
     100% {
         opacity: 0;
@@ -185,4 +190,4 @@
     .todo-list__list-container {
         width: 300px;
     }
-} 
+}
