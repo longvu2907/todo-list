@@ -6,6 +6,7 @@
 }
 
 i {
+    user-select: none;
     color: transparent;
 }
 
@@ -86,8 +87,7 @@ i {
 
 .todo-list__list-container {
     height: 50%;
-    width: 400px;
-    padding: 30px;
+    width: 430px;
     background: #7cffff8f;
     border-radius: 10px;
     box-shadow: 1px 0px 10px cyan;
@@ -97,7 +97,7 @@ i {
     overflow: scroll;
     height: 100%;
     border-radius: 10px;
-    padding: 10px;
+    padding: 40px;
 }
 
 .todo-list__item {
@@ -106,6 +106,7 @@ i {
     margin-bottom: 10px;
     padding: 10px;
     box-shadow: 0px 1px 5px #134c4c26;
+    position: relative;
 }
 
 .item__todo {
@@ -128,6 +129,7 @@ i {
     color: red;
     opacity: 0.5;
     transition: all 0.3s;
+    margin-right: 10px;
 }
 
 .item__edit-button {
@@ -138,14 +140,36 @@ i {
     margin-right: 10px;
 }
 
-.item__delete-button:hover {
+.item__done-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 1.5rem;
+    color: gray;
+    opacity: 0.5;
+    transition: all 0.3s;
+    transform: translate(120%, -50%);
+}
+
+.item__delete-button:hover,
+.item__edit-button:hover {
     transform: scale(1.5);
     opacity: 1;
 }
 
-.item__edit-button:hover {
-    transform: scale(1.5);
+.item__done-button:hover {
+    transform: translate(120%, -50%) scale(1.5);
     opacity: 1;
+}
+
+.done .item__todo span {
+    text-decoration: line-through;
+}
+
+.done .item__done-button {
+    font-size: 2rem;
+    color: green;
+    opacity: 0.8;
 }
 
 .item--new {

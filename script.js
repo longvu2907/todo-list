@@ -14,7 +14,7 @@ function getTodoList(callback) {
 function renderTodoList() {
     var htmls = data.map((item) => {
         return `
-            <div class="todo-list__item item-${item.id}">
+            <div class="todo-list__item item-${item.id} ${item.status}">
                 <div class="item__content">
                     <div class="item__todo">
                         <span>${item.todo}</span>
@@ -26,6 +26,7 @@ function renderTodoList() {
                 <div class="item__modify">
                     <i class="fas fa-pen-fancy item__edit-button" onclick="handleEditTodo('${item.id}')"></i>
                     <i class="fas fa-times item__delete-button" onclick="handleDeleteTodo('${item.id}')"></i>
+                    <i class="fas fa-check item__done-button" onclick="markDone('${item.id}')"></i>
                 </div>
             </div>
         `;
@@ -58,7 +59,7 @@ function handleAddTodo() {
     };
     data.push(newData);
     todoListBlock.innerHTML += `
-        <div class="todo-list__item item-${newData.id} item--new">
+        <div class="todo-list__item item-${newData.id} item--new ${newData.status}">
             <div class="item__content">
                 <div class="item__todo">
                     <span>${newData.todo}</span>
@@ -70,11 +71,24 @@ function handleAddTodo() {
             <div class="item__modify">
                 <i class="fas fa-pen-fancy item__edit-button" onclick="handleEditTodo('${newData.id}')"></i>
                 <i class="fas fa-times item__delete-button" onclick="handleDeleteTodo('${newData.id}')"></i>
+                <i class="fas fa-check item__done-button" onclick="markDone('${newData.id}')"></i>
             </div>
         </div>`;
     var items = document.querySelectorAll(".item--new");
     var item = items[items.length - 1];
     setTimeout(() => item.classList.remove("item--new"), 500);
+    updateTodoList();
+}
+
+function markDone(id) {
+    var element = document.querySelector(".todo-list__item.item-" + id);
+    data.forEach((item) => {
+        if (item.id == id) {
+            item.status = item.status == "done" ? "pending" : "done";
+        }
+    });
+    element.classList.toggle("done");
+    element.classList.toggle("pending");
     updateTodoList();
 }
 
